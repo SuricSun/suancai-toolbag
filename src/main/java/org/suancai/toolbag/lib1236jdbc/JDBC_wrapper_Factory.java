@@ -1,4 +1,4 @@
-package org.suancai.lib1236jdbc;
+package org.suancai.toolbag.lib1236jdbc;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;

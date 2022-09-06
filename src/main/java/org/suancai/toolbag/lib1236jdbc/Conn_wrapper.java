@@ -1,7 +1,7 @@
-package org.suancai.lib1236jdbc;
+package org.suancai.toolbag.lib1236jdbc;
 
-import org.suancai.common.exception.Duplicate_exception;
-import org.suancai.common.exception.Not_exist_exception;
+import org.suancai.toolbag.common.exception.Duplicate_exception;
+import org.suancai.toolbag.common.exception.Not_exist_exception;
 
 import java.lang.reflect.Field;
 import java.sql.*;

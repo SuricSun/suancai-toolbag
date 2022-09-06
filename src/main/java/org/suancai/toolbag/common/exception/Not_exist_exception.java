@@ -1,4 +1,4 @@
-package org.suancai.common.exception;
+package org.suancai.toolbag.common.exception;
 
 /**
  * @author: SuricSun

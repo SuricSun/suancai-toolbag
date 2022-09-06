@@ -1,4 +1,4 @@
-package org.suancai.lib1236jdbc.exception;
+package org.suancai.toolbag.lib1236jdbc.exception;
 
 /**
  * @author: SuricSun

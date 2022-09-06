@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
-import org.suancai.lib1236jdbc.Conn_wrapper;
-import org.suancai.lib1236jdbc.JDBC_wrapper_Factory;
-import org.suancai.lib1236jdbc.Result_wrapper;
+import org.suancai.toolbag.lib1236jdbc.Conn_wrapper;
+import org.suancai.toolbag.lib1236jdbc.JDBC_wrapper_Factory;
+import org.suancai.toolbag.lib1236jdbc.Result_wrapper;
 
 import java.sql.ResultSet;
 import java.util.Arrays;
@@ -27,47 +27,47 @@ public class TestCase {
 
         Conn_wrapper cw = jdbc_wrapper_fac.get_conn_wrapper();
 
-        Result_wrapper rw = cw
-                .use_db("scy")
-                .set_stmt("insert into book values ('我是傻逼','awdawdawd',0,0)", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
-                .exec_stmt();
-
-        cw.set_savepoint("0");
-
-        rw = cw
-                .use_db("scy")
-                .set_stmt("insert into book values ('我是傻逼0','awdawdawd',0,0)", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
-                .exec_stmt();
-
-        cw.set_savepoint("1");
-
-        rw = cw
-                .use_db("scy")
-                .set_stmt("insert into book values ('我是傻逼1','awdawdawd',0,0)", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
-                .exec_stmt();
-
-
-        cw.rollback_to_nearest_savepoint();
-
-        cw.commit_tran();
-//
 //        Result_wrapper rw = cw
 //                .use_db("scy")
-//                .set_stmt("select * from book", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
+//                .set_stmt("insert into book values ('我是傻逼','awdawdawd',0,0)", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
 //                .exec_stmt();
 //
-//        List<Entity> li = rw.result_set_to_list(Entity.class);
-//        System.out.println(Arrays.toString(li.toArray()));
+//        cw.set_savepoint("0");
 //
-//        rw.reset_iterate_state();
-//        li = rw.result_set_to_list(Entity.class);
-//        System.out.println(Arrays.toString(li.toArray()));
+//        rw = cw
+//                .use_db("scy")
+//                .set_stmt("insert into book values ('我是傻逼0','awdawdawd',0,0)", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
+//                .exec_stmt();
 //
-//        li = rw.result_set_to_list(Entity.class);
-//        System.out.println(Arrays.toString(li.toArray()));
+//        cw.set_savepoint("1");
 //
-//        Entity entity = rw.result_set_to_single_object(Entity.class);
-//        System.out.println(entity);
+//        rw = cw
+//                .use_db("scy")
+//                .set_stmt("insert into book values ('我是傻逼1','awdawdawd',0,0)", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
+//                .exec_stmt();
+//
+//
+//        cw.rollback_to_nearest_savepoint();
+//
+//        cw.commit_tran();
+//
+        Result_wrapper rw = cw
+                .use_db("scy")
+                .set_stmt("select * from book", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
+                .exec_stmt();
+
+        List<Entity> li = rw.result_set_to_list(Entity.class);
+        System.out.println(Arrays.toString(li.toArray()));
+
+        rw.reset_iterate_state();
+        li = rw.result_set_to_list(Entity.class);
+        System.out.println(Arrays.toString(li.toArray()));
+
+        li = rw.result_set_to_list(Entity.class);
+        System.out.println(Arrays.toString(li.toArray()));
+
+        Entity entity = rw.result_set_to_single_object(Entity.class);
+        System.out.println(entity);
     }
 }
 
